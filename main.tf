@@ -30,7 +30,8 @@ module "this_ingress" {
   lb_name      = var.loadbalancer.name
 
   rule_condition = [
-    local.rule_condition_path
+    local.rule_condition_path,
+    local.rule_condition_host_header
   ]
 
   target_group = {

@@ -33,5 +33,22 @@ module "this_ingress" {
     local.rule_condition_path
   ]
 
+  target_group = {
+    port                 = "traffic-port"
+    protocol             = "HTTP"
+    deregistration_delay = var.deregistration_delay
+    target_type          = "ip"
+    health_check = {
+      enabled             = lookup(var.health_check, "enabled", true)
+      path                = lookup(var.health_check, "path", "/")
+      protocol            = lookup(var.health_check, "protocol", "HTTP")
+      matcher             = lookup(var.health_check, "matcher", 200)
+      interval            = lookup(var.health_check, "interval", 100)
+      timeout             = lookup(var.health_check, "timeout", 60)
+      health_threshold    = lookup(var.health_check, "health_threshold", 2)
+      unhealthy_threshold = lookup(var.health_check, "unhealthy_threshold", 2)
+    }
+  }
+
   tags = var.tags
 }

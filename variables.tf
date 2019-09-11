@@ -30,3 +30,12 @@ variable "rule_condition_host_header" {
 variable "container_definition" {
   description = "Container definition JSON"
 }
+
+variable "deregistration_delay" {
+  default = 60
+}
+
+variable "health_check" {
+  type    = "map"
+  default = {}
+}

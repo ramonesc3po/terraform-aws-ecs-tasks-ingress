@@ -34,7 +34,7 @@ module "this_ingress" {
   ]
 
   target_group = {
-    port                 = "traffic-port"
+    port                 = 0
     protocol             = "HTTP"
     deregistration_delay = var.deregistration_delay
     target_type          = "ip"

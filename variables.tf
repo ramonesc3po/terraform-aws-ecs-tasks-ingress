@@ -41,6 +41,6 @@ variable "health_check" {
 }
 
 variable "desired_count" {
-  type    = "string"
+  type    = number
   default = 0
 }

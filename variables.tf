@@ -44,3 +44,8 @@ variable "desired_count" {
   type    = number
   default = 0
 }
+
+variable "is_daemon" {
+  type    = bool
+  default = false
+}

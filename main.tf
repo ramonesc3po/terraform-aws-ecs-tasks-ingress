@@ -7,7 +7,6 @@ module "this_task" {
   name_ecs_task               = var.name_service
   ecs_container_definitions   = var.container_definition
   desired_count               = var.desired_count
-  service_scheduling_strategy = var.is_daemon == true ? "DAEMON" : "REPLICA"
 
   tags = var.tags
 }

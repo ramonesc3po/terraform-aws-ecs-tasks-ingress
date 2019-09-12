@@ -39,3 +39,8 @@ variable "health_check" {
   type    = "map"
   default = {}
 }
+
+variable "desired_count" {
+  type    = "string"
+  default = 0
+}

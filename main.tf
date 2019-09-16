@@ -7,7 +7,13 @@ module "this_task" {
   name_ecs_task             = var.name_service
   ecs_container_definitions = var.container_definition
   desired_count             = var.desired_count
-  lb_target_group_name      = [module.this_ingress.target_group_arn,module.this_task.name_ecs_task,var.container_port]
+  lb_target_group_name = [
+    {
+      target_group_arn = module.this_ingress.target_group_arn
+      container_name   = module.this_task.name_ecs_task
+      container_port   = var.container_port
+    }
+  ]
 
   tags = var.tags
 }

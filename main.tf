@@ -46,7 +46,7 @@ module "this_ingress" {
     port                 = var.container_port
     protocol             = "HTTP"
     deregistration_delay = var.deregistration_delay
-    target_type          = "ip"
+    target_type          = "instance"
     health_check = {
       enabled             = lookup(var.health_check, "enabled", true)
       path                = lookup(var.health_check, "path", "/")

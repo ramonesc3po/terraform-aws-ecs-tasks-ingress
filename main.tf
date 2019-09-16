@@ -1,12 +1,13 @@
 module "this_task" {
   source = "github.com/ramonesc3po/terraform-aws-ecs-tasks.git?ref=develop"
 
-  tier                        = var.tier
-  organization                = var.organization
-  cluster_id                  = var.cluster_id
-  name_ecs_task               = var.name_service
-  ecs_container_definitions   = var.container_definition
-  desired_count               = var.desired_count
+  tier                      = var.tier
+  organization              = var.organization
+  cluster_id                = var.cluster_id
+  name_ecs_task             = var.name_service
+  ecs_container_definitions = var.container_definition
+  desired_count             = var.desired_count
+  lb_target_group_name      = module.this_ingress.target_group_name
 
   tags = var.tags
 }

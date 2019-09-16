@@ -45,3 +45,8 @@ variable "desired_count" {
   default = 0
 }
 
+variable "container_port" {
+  type = number
+  default = 80
+}
+

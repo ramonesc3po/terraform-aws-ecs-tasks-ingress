@@ -7,7 +7,7 @@ module "this_task" {
   name_ecs_task             = var.name_service
   ecs_container_definitions = var.container_definition
   desired_count             = var.desired_count
-  lb_target_group_name      = [module.this_ingress.target_group_arn,module.this_task.name_ecs_task,null]
+  lb_target_group_name      = [module.this_ingress.target_group_arn,module.this_task.name_ecs_task,var.container_port]
 
   tags = var.tags
 }
@@ -37,7 +37,7 @@ module "this_ingress" {
   ]
 
   target_group = {
-    port                 = 80
+    port                 = var.container_port
     protocol             = "HTTP"
     deregistration_delay = var.deregistration_delay
     target_type          = "ip"
